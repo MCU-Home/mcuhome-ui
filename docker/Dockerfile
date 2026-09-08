@@ -22,7 +22,7 @@
 # Build from the repository root:
 #   docker build -f docker/Dockerfile -t mcuhome-ui .
 
-FROM nginx:1.30.4-alpine
+FROM nginx:1.31.5-alpine
 
 # The port Home Assistant's ingress connects to (ingress_port in the app
 # repository's config.yaml). Stated for readers; nginx listens because
