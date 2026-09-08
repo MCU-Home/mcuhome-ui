@@ -13,6 +13,15 @@ updates:
     groups:
       actions:
         patterns: ["*"]
+  # The base image of docker/Dockerfile is pinned to an exact nginx
+  # version; this entry is what keeps that pin current.
+  - package-ecosystem: docker
+    directory: /docker
+    schedule:
+      interval: weekly
+    groups:
+      docker:
+        patterns: ["*"]
   # The root pyproject.toml holds only the linter pins
   # ([dependency-groups] dev), no project of its own.
   - package-ecosystem: pip

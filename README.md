@@ -110,6 +110,12 @@ relative, so the same output can be served from the root of a site and from
 a path below it without being rebuilt. Serving it needs nothing but a static
 file server that returns `.wasm` as `application/wasm`.
 
+[`docker/Dockerfile`](docker/Dockerfile) is that server: an nginx image that
+copies a distribution built beforehand, published on every `v*` tag as
+`ghcr.io/mcu-home/ui-homeassistant-app` and run as the Home Assistant App.
+Because the back end does not exist yet, what it serves is the front end on
+its mock data.
+
 Gradle and the Kotlin/WebAssembly compiler together want a few gigabytes of
 memory. `frontend/gradle.properties` caps both daemons and limits Gradle to
 two worker processes; on a machine with more memory to spare those limits

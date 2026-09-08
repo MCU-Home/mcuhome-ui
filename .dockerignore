@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 The MCUHome Contributors
+# SPDX-License-Identifier: Apache-2.0
+#
+# The build context is the repository root, and the image needs exactly
+# two paths out of it. Everything else — the sources, the Gradle caches,
+# the rest of the front end's build directory, several hundred megabytes
+# in total — is excluded first and the two paths are added back, so the
+# context stays what the image actually copies.
+
+*
+!docker/default.conf
+!frontend/web/build/dist/wasmJs/productionExecutable
